@@ -55,7 +55,7 @@ program = [
     jal(0, 0),            # 36: infinite loop (halt) - jal x0, self
 ]
 
-with open("program.hex", "w") as f:
+with open("../rtl/smoke_test.hex", "w") as f:
     for instr in program:
         f.write(f"{instr:08x}\n")
 

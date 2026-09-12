@@ -19,7 +19,8 @@ module control (
 
     // ---- main decoder ----
     always_comb begin
-        {reg_write, alu_src, mem_write, mem_read, result_src, branch, jump, jalr, lui, auipc, alu_op} = '0;
+        {reg_write, alu_src, mem_write, mem_read, result_src, branch, jump, jalr, lui,
+        auipc, alu_op} = '0;
 
         case (opcode)
             7'b0110011: begin // R-type
