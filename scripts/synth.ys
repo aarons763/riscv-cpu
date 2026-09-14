@@ -1,0 +1,24 @@
+# Read the synthesizable CPU RTL.
+read_verilog -sv -DSYNTHESIS rtl/regfile.sv
+read_verilog -sv -DSYNTHESIS rtl/alu.sv
+read_verilog -sv -DSYNTHESIS rtl/imm_gen.sv
+read_verilog -sv -DSYNTHESIS rtl/control.sv
+read_verilog -sv -DSYNTHESIS rtl/instr_mem.sv
+read_verilog -sv -DSYNTHESIS rtl/data_mem.sv
+read_verilog -sv -DSYNTHESIS rtl/cpu_top.sv
+
+# Select cpu_top as the design top module.
+hierarchy -check -top cpu_top
+
+# Convert procedural SystemVerilog into logic and optimize it.
+proc
+opt
+
+# Keep instruction/data memory as abstract memory rather than expanding
+# 4 KiB memories into thousands of flip-flops.
+memory -nomap
+opt
+
+# Check the final elaborated design and print statistics.
+check
+stat

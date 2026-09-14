@@ -36,6 +36,7 @@ a.emit('lw', 23, 0, 0)      # x23 = mem[0] = 5
 
 # ---------------- lui ----------------
 a.emit('lui', 24, 0x12345)  # x24 = 0x12345000
+a.emit('auipc', 25, 0x1)    # x25 = current PC + 0x00001000
 
 # ---------------- branches: beq/bne (equal-value case) ----------------
 a.emit('addi', 1, 0, 7)

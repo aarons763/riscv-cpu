@@ -1,3 +1,7 @@
 *.out
 *.vcd
 *.o
+rtl/smoke_test.hex
+rtl/coverage_test.hex
+rtl/random_alu_test.hex
+reports/yosys_synthesis.log
