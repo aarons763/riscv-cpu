@@ -96,6 +96,8 @@ make build-regfile
 make build-data-mem
 make build-smoke
 make build-coverage
+make random-alu
+make synth
 ```
 
 ## Verification Status
@@ -110,7 +112,7 @@ make build-coverage
 | Smoke-test program | Passing |
 | Directed full-core instruction-subset regression | Passing |
 | Verilator lint | Passing with documented memory-address warnings |
-| Random differential testing | Planned |
+| Randomized ALU differential testing | Implemented; Python reference model compares generated programs against RTL simulation |
 | Functional/code coverage | Planned |
 | Formal verification | Planned |
 | Generic Yosys synthesis | Passing: 121 logical cells and 2 abstract memories |

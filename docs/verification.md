@@ -16,6 +16,8 @@ Verify the implemented RV32I instruction subset at both the module level and com
 | Smoke test | `make build-smoke` | Runs a short CPU program containing arithmetic, load/store, branch, and jump operations |
 | Directed integration test | `make build-coverage` | Runs a longer program covering every currently supported instruction family |
 | Lint | `make lint` | Uses Verilator to identify RTL issues before simulation |
+| Random ALU differential test | `make random-alu` | Generates random ALU programs, calculates expected register state in Python, and compares it against RTL simulation |
+| Generic synthesis | `make synth` | Runs Yosys elaboration, optimization, hierarchy checks, and abstract-memory synthesis |
 
 ## Directed Integration-Test Coverage
 
@@ -44,9 +46,7 @@ Future work will add assertions or trap behavior for unaligned/out-of-range acce
 
 ## Planned Verification Improvements
 
-1. Python reference model and randomized differential testing.
-2. Functional and code coverage collection using Verilator.
-3. SystemVerilog assertions for invariants such as `x0 == 0`.
-4. Formal checks with SymbiYosys.
-5. Yosys synthesis and resource reporting.
-6. Continuous integration that runs lint and tests on every Git commit.
+1. Functional and code coverage collection using Verilator.
+2. SystemVerilog assertions for invariants such as `x0 == 0`.
+3. Formal checks with SymbiYosys.
+4. Continuous integration that runs lint and tests on every Git commit.
