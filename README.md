@@ -6,38 +6,9 @@ The design executes one instruction per clock cycle in simulation. It includes a
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    PC[Program Counter] --> IMEM[Instruction Memory]
-    IMEM --> INSTR[Instruction]
+![RV32I-subset single-cycle processor datapath](docs/images/cpu-datapath.svg)
 
-    INSTR --> CTRL[Control Decoder]
-    INSTR --> IMM[Immediate Generator]
-    INSTR --> RF[Register File]
-
-    PC --> PCADD[PC + 4]
-    PC --> TARGET[PC + Immediate]
-    IMM --> TARGET
-
-    RF -->|rs1| ALU[ALU]
-    RF -->|rs2 or immediate| ALU
-    IMM --> ALU
-
-    CTRL --> ALU
-    ALU --> DMEM[Data Memory]
-    RF -->|store data| DMEM
-
-    ALU --> WB[Writeback Mux]
-    DMEM --> WB
-    PCADD --> WB
-    IMM --> WB
-
-    WB -->|rd write data| RF
-    TARGET --> PCMUX[Next-PC Mux]
-    PCADD --> PCMUX
-    ALU --> PCMUX
-    PCMUX --> PC
-```
+Implementation overview derived from `rtl/cpu_top.sv`. Solid lines carry data; dashed lines carry control signals. Debug outputs are omitted for clarity.
 
 ## Supported ISA Subset
 
