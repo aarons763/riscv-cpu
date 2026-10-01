@@ -8,7 +8,9 @@ The design executes one instruction per clock cycle in simulation. It includes a
 
 ![RV32I-subset single-cycle processor datapath](docs/images/cpu-datapath.svg)
 
-Implementation overview derived from `rtl/cpu_top.sv`. Solid lines carry data; dashed lines carry control signals. Debug outputs are omitted for clarity.
+Implementation overview derived from `rtl/cpu_top.sv`. Solid green lines carry data; solid orange lines carry control signals. Matching signal labels denote the same net, and dots mark connected junctions. Debug outputs are omitted for clarity.
+
+[Edit the diagram in draw.io](docs/images/cpu-datapath.drawio) | [PNG image](docs/images/cpu-datapath.png)
 
 ## Supported ISA Subset
 
